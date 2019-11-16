@@ -22,16 +22,13 @@ public class RobotController
 	
     public void type(String toType, int backspaces)
     {
-    	for (int i = 0; i < backspaces; i++)
-    	{
-    		robot.keyPress(KeyEvent.VK_BACK_SPACE);
-    		robot.keyRelease(KeyEvent.VK_BACK_SPACE);
-    	}
-    		
+    	backspace(backspaces);
+    	
     	// Adds chosen string to clipboard
     	StringSelection stringSelection = new StringSelection(toType);
     	clipboard.setContents(stringSelection, stringSelection);
     	
+    	// Figures out if caps were ever used
     	boolean hasCaps = toType.contains(":");
     	if (!hasCaps)
     		hasCaps = !toType.equals(toType.toLowerCase());
@@ -41,15 +38,22 @@ public class RobotController
     		
     	try
 		{
-    		if (hasCaps)
-    			Thread.sleep(1000);
-    		else
-    			Thread.sleep(50);
+    		// For some reason, if the shift key is used it takes longer to copy to the clipboard
+    		Thread.sleep(hasCaps ? 1000 : 50);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
 
     	paste();
+    }
+    
+    public void backspace(int count)
+    {
+    	for (int i = 0; i < count; i++)
+    	{
+    		robot.keyPress(KeyEvent.VK_BACK_SPACE);
+    		robot.keyRelease(KeyEvent.VK_BACK_SPACE);
+    	}
     }
     
     public void paste()

@@ -12,7 +12,6 @@ public class Listener implements NativeKeyListener
 {
 	public Controller controller;
 	public boolean isHoldingShift = false;
-	public String justReleased = "";
 	
 	private String lastTyped = "";
 
@@ -35,13 +34,11 @@ public class Listener implements NativeKeyListener
 	public void nativeKeyReleased(NativeKeyEvent e)
 	{
 		String typed = NativeKeyEvent.getKeyText(e.getKeyCode());
-		lastTyped = "";
-		justReleased = typed;
 
 		if (typed.equals("Shift"))
-		{
 			isHoldingShift = false;
-		}
+		
+		lastTyped = "";
 	}
 	
 	public void nativeKeyTyped(NativeKeyEvent e) { }
@@ -63,8 +60,6 @@ public class Listener implements NativeKeyListener
 		// Get the logger for "org.jnativehook" and set the level to warning.
 		Logger logger = Logger.getLogger(GlobalScreen.class.getPackage().getName());
 		logger.setLevel(Level.WARNING);
-
-		// Don't forget to disable the parent handlers.
 		logger.setUseParentHandlers(false);
 	}
 }

@@ -10,19 +10,24 @@ public class Controller
 	public Controller()
 	{
 		subs = new Substitution[] {
-				new Substitution("o:", "ö"),
-				new Substitution("O:", "Ö"),
 				new Substitution("a:", "ä"),
-				new Substitution("A:", "Ä"),
 				new Substitution("u:", "ü"),
+				new Substitution("o:", "ö"),
+				
+				new Substitution("A:", "Ä"),
 				new Substitution("U:", "Ü"),
-				new Substitution("ssb", "ß"),
+				new Substitution("O:", "Ö"),
+				
 				new Substitution("oee", "ö"),
-				new Substitution("OEE", "Ö"),
 				new Substitution("aee", "ä"),
-				new Substitution("AEE", "Ä"),
 				new Substitution("uee", "ü"),
-				new Substitution("UEE", "Ü")
+				
+				// Only the first letter's case matters
+				new Substitution("Aee", "Ä", true),
+				new Substitution("Uee", "Ü", true),
+				new Substitution("Oee", "Ö", true),
+				
+				new Substitution("ssb", "ß")
 		};
 	}
 	
@@ -38,9 +43,7 @@ public class Controller
 		for (int i = 0; i < subs.length; i++)
 		{
 			if (subs[i].progress(key))
-			{
 				robot.type(subs[i].outputString, subs[i].neededBackspaces());
-			}
 		}
 	}
 	
