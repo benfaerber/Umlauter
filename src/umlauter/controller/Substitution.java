@@ -5,7 +5,11 @@ public class Substitution
 	public String inputString;
 	public String outputString;
 	
-	private boolean onlyFirstCaseMatters;
+	// CaseModes:
+	// 0: Case Matters
+	// 1: First letter matters
+	// 2: Case doesn't matter
+	private int caseMode;
 	private int progressCounter = 0;
 
 	
@@ -13,14 +17,14 @@ public class Substitution
 	{
 		this.inputString = inputString;
 		this.outputString = outputString;
-		this.onlyFirstCaseMatters = false;
+		this.caseMode = 0;
 	}
 	
-	public Substitution(String inputString, String outputString, boolean onlyFirstCaseMatters)
+	public Substitution(String inputString, String outputString, int caseMode)
 	{
 		this.inputString = inputString;
 		this.outputString = outputString;
-		this.onlyFirstCaseMatters = onlyFirstCaseMatters;
+		this.caseMode = caseMode;
 	}
 	
 	public int neededBackspaces()
@@ -32,8 +36,14 @@ public class Substitution
 	{		
 		String neededCharacter = inputString.substring(progressCounter, progressCounter+1);
 		
-		if (onlyFirstCaseMatters && progressCounter != 0)
+		if (caseMode == 1 && progressCounter != 0)
 			key = key.toLowerCase();
+		
+		if (caseMode == 2)
+		{
+			key = key.toLowerCase();
+			neededCharacter = neededCharacter.toLowerCase();
+		}
 		
 		if (neededCharacter.equals(key))
 			progressCounter++;

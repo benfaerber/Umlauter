@@ -43,7 +43,7 @@ public class RobotController
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-
+    	
     	paste();
     }
     

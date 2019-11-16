@@ -23,11 +23,12 @@ public class Controller
 				new Substitution("uee", "ü"),
 				
 				// Only the first letter's case matters
-				new Substitution("Aee", "Ä", true),
-				new Substitution("Uee", "Ü", true),
-				new Substitution("Oee", "Ö", true),
+				new Substitution("Aee", "Ä", 1),
+				new Substitution("Uee", "Ü", 1),
+				new Substitution("Oee", "Ö", 1),
 				
-				new Substitution("ssb", "ß")
+				// Case doesn't matter
+				new Substitution("ssb", "ß", 2)
 		};
 	}
 	
