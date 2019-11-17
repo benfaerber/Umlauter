@@ -1,7 +1,7 @@
-#The first part is the input, after that is the output, the number at the end is the case mode
-#0 - care about case
-#1 - care about the first letter's case
-#2 - do not care about case
+# The first part is the input, after that is the output, the number at the end is the case mode
+# 0 - care about case
+# 1 - care about the first letter's case
+# 2 - do not care about case
 
 # German
 aee=ä,0
@@ -13,7 +13,6 @@ Oee=Ö,1
 ssb=ß,2
 
 # Spanish
-# áéíóúüñÁÉÍÓÚÜÑ¿¡
 a''=á,0
 e''=é,0
 i''=í,0
@@ -28,3 +27,7 @@ U''=Ú,1
 N`=Ñ,1
 //.=¿,2
 11.=¡,2
+
+# Currency
+eu4=€,2
+gb4=£,2
