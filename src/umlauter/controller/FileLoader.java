@@ -22,6 +22,12 @@ public class FileLoader
 	
 	public String currentDirectory()
 	{
-		return System.getProperty("user.dir") + "\\";
+		return System.getProperty("user.dir") + directorySeperator();
+	}
+	
+	public String directorySeperator()
+	{
+		boolean isWindows = System.getProperty("os.name").toLowerCase().contains("windows");
+		return isWindows ? "\\" : "/";
 	}
 }

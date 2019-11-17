@@ -38,17 +38,16 @@ public class Controller
 	{
 		FileLoader fl = new FileLoader();
 		ArrayList<String> settings = fl.read("settings.txt");
+		// If you are running from eclipse, find the settings file in the builds folder
 		if (settings == null)
-			settings = fl.read("builds/settings.txt");
+			settings = fl.read("builds" + fl.directorySeperator() + "settings.txt");
 		
 		for (String s : settings)
 		{
 			if (s.length() > 0)
 			{
 				if (!s.substring(0, 1).equals("#") && s.contains("="))
-				{
 					subs.add(new Substitution(s));
-				}
 			}
 		}
 	}
