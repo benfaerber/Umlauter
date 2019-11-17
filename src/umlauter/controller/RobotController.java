@@ -23,7 +23,7 @@ public class RobotController
     public void type(String toType, int backspaces)
     {
     	backspace(backspaces);
-    	
+
     	// Adds chosen string to clipboard
     	StringSelection stringSelection = new StringSelection(toType);
     	clipboard.setContents(stringSelection, stringSelection);

@@ -12,14 +12,6 @@ public class Substitution
 	private int caseMode;
 	private int progressCounter = 0;
 
-	
-	public Substitution(String inputString, String outputString)
-	{
-		this.inputString = inputString;
-		this.outputString = outputString;
-		this.caseMode = 0;
-	}
-	
 	public Substitution(String inputString, String outputString, int caseMode)
 	{
 		this.inputString = inputString;
@@ -27,6 +19,20 @@ public class Substitution
 		this.caseMode = caseMode;
 	}
 	
+	public Substitution(String settingsData)
+	{
+		String[] parts = settingsData.split(",");
+		String[] equation = parts[0].split("=");
+		this.inputString = equation[0];
+		this.outputString = equation[1];
+		this.caseMode = Integer.parseInt(parts[1]);
+	}
+
+	public String toString()
+	{
+		return "in:" + inputString + "\nout:" + outputString + "\ncase mode:" + caseMode;
+	}
+
 	public int neededBackspaces()
 	{
 		return inputString.length();

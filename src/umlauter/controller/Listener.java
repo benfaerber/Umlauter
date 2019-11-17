@@ -34,7 +34,6 @@ public class Listener implements NativeKeyListener
 	public void nativeKeyReleased(NativeKeyEvent e)
 	{
 		String typed = NativeKeyEvent.getKeyText(e.getKeyCode());
-
 		if (typed.equals("Shift"))
 			isHoldingShift = false;
 		

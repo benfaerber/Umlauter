@@ -1,0 +1,30 @@
+#The first part is the input, after that is the output, the number at the end is the case mode
+#0 - care about case
+#1 - care about the first letter's case
+#2 - do not care about case
+
+# German
+aee=ä,0
+oee=ö,0
+uee=ü,0
+Aee=Ä,1
+Uee=Ü,1
+Oee=Ö,1
+ssb=ß,2
+
+# Spanish
+# áéíóúüñÁÉÍÓÚÜÑ¿¡
+a''=á,0
+e''=é,0
+i''=í,0
+o''=ó,0
+u''=ú,0
+n`=ñ,0
+A''=Á,1
+E''=É,1
+I''=Í,1
+O''=Ó,1
+U''=Ú,1
+N`=Ñ,1
+//.=¿,2
+11.=¡,2
